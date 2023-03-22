@@ -5,4 +5,50 @@ order: 1
 
 # Overview
 
-pending...
+## What is BNB Greenfield
+BNB Greenfield is an innovative blockchain and storage platform that seeks to unleash the power of decentralized
+technology on data ownership and the data economy. With a focus on facilitating decentralized data management and
+access, Greenfield aims to revolutionize the data economy by easing the storing and management of data and linking
+data ownership with the DeFi context of Binance Smart Chain (BSC).
+
+What sets Greenfield apart from existing centralized and decentralized storage systems are its three key components:
+
+- It allows Ethereum-compatible addresses to create and manage both data and token assets.
+
+- It natively links data permissions and management logic onto BSC as exchangeable assets and smart contract programs
+ with all other assets.
+
+- It provides developers with similar API primitives and performance as popular existing Web2 cloud storage.
+
+The ultimate goal of Greenfield is to establish a test field for new data economy and dApp models, which will
+undoubtedly aid in the development and evolution of the foundation for Web3.
+
+## How BNB Greenfield Works
+
+BNB Greenfield operates on two layers:
+
+1. It is built on a new, storage-focused blockchain; and
+
+2. It consists of a network of "storage providers".
+
+The BNB Greenfield blockchain maintains the ledger for users and records the storage metadata as the common blockchain
+state data. Its native token for gas and governance is BNB, which is transferred from BNB Smart Chain. Additionally,
+BNB Greenfield blockchain has its own staking logic designed for governance.
+
+Storage Providers (SP) are storage service infrastructures provided by organizations or individuals that use Greenfield
+as the ledger and the single source of truth. Each SP is responsible for responding to user requests to upload and
+download data, while also serving as the gatekeeper for user rights and authentications.
+
+Together, BNB Greenfield blockchain and the SPs comprise a decentralized object storage system that serves as the core
+of this new economy. Developers can construct decentralized applications (dApps) using the BNB Greenfield platform,
+which can act as client tools that facilitate user interactions with Greenfield; or applications that provide significant
+value to users' real lives using Greenfield as their infrastructure. These applications will use blockchain addresses
+as user identifiers and connect with features and smart contracts on the Greenfield blockchain, Greenfield SPs, and BSC.
+
+A native cross-chain bridge exists between BSC and BNB Greenfield blockchain. While it is cheaper to create and access
+data on Greenfield, the relevant data operation can be transferred to BSC and integrated with DeFi smart contract
+systems to generate new business models.
+
+## Get Started with BNB Greenfield
+
+- [Quick Start with BNB Greenfield](../get-started.md)
