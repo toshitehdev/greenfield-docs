@@ -31,12 +31,12 @@ BNB Greenfield operates on two layers:
 
 2. It consists of a network of "storage providers".
 
-The [BNB Greenfield Blockchain](../greenfield-blockchain) maintains the ledger for
+The [BNB Greenfield Blockchain](../greenfield-blockchain/overview.md) maintains the ledger for
 users and records the storage metadata as the common blockchain state data. Its native token for gas and governance is
 BNB, which is transferred from BNB Smart Chain. Additionally, BNB Greenfield blockchain has its own staking logic
 designed for governance.
 
-The [Storage Providers (SP)](../storage-provider) are storage service infrastructures
+The [Storage Providers (SP)](../storage-provider/overview.md) are storage service infrastructures
 provided by organizations or individuals that use Greenfield as the ledger and the single source of truth. Each SP is
 responsible for responding to user requests to upload and download data, while also serving as the gatekeeper for user
 rights and authentications.
