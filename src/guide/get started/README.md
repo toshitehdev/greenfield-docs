@@ -1,11 +1,7 @@
 ---
 title: Get Started
 icon: creative
+index: false
 dir:
   order: 2
-order: 2
 ---
-
-# Get Started
-
-pending...
