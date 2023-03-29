@@ -4,11 +4,11 @@ icon: generic
 order: 1
 ---
 
-# Greenfield Blockchain GRPC, REST, and Tendermint Endpoints
+# Greenfield Blockchain Endpoints
 
 This document presents an overview of all the endpoints a node exposes: gRPC, REST as well as some other endpoints.
 
-## An Overview of All Endpoints
+## An Overview of All the Endpoints
 
 Each node exposes the following endpoints for users to interact with a node, each endpoint is served on a different port. 
 Details on how to configure each endpoint is provided in the endpoint's own section.
@@ -43,7 +43,7 @@ the server should bind to. Defaults to `0.0.0.0:9090`.
 :::
 
 Once the gRPC server is started, you can send requests to it using a gRPC client. Some examples are given in our 
-[Interact with the Node](../guide/greenfield-blockchain/run-node/interact-node.md#using-grpc) tutorial.
+[Interact with the Node](../greenfield-blockchain/run-node/interact-node.md#using-grpc) tutorial.
 
 ## REST Server
 
