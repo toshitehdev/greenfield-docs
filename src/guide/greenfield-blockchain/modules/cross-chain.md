@@ -6,6 +6,9 @@ order: 5
 :::note
 #### Pre-requisite Readings
 
+:::note
+#### Pre-requisite Readings
+
 The Greenfield ecosystem consists of three distinct layers. To have more information about them
 we invite you to read [this page](../../concept/programmability.md#framework).
 :::
