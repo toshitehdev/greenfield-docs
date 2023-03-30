@@ -46,7 +46,7 @@ deleted.**
 :::
 
 ### Trust or Shift
-In the Greenfield Blockchain, there is trust between the users and the SPs for data download.
+In Greenfield, there is trust between the users and the SPs for data download.
 
 Since downloading bandwidth incurs additional fees and the download journal is not completely stored on the Greenfield blockchain, Storage Providers (SPs) offer an endpoint interface for users to access detailed logs and downloaders' signatures for download billing.
 If the users and the SPs cannot agree on the bill, users may just select another Primary SP.

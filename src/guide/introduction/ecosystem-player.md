@@ -8,7 +8,7 @@ From `storage provider` and BNB staker to developers, there are a variety of ind
 role in the growth and success of Greenfield. We'll dive into the unique contributions and responsibilities of 
 each group, and explore how they work together to shape the future of Greenfield.
 
-## Greenfield Individuals
+## Greenfield Actors
 
 ### Validators
 

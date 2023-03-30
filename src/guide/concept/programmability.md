@@ -36,7 +36,7 @@ The first layer is the `Cross-Chain Communication Layer`, which is responsible f
 the communication packages between the BSC and the Greenfield blockchain networks. This layer serves as the backbone of 
 the entire ecosystem, ensuring the smooth and secure transfer of information between the two platforms.
 
-The second layer is the `Resource Mirror Layer`, which provides a bridge between Greenfield and Binance Smart Chain (BSC). 
+The second layer is the `Resource Mirror Layer`, which provides a bridge between Greenfield and BNB Smart Chain. 
 This layer manages the resource assets defined on Greenfield, which are then mirrored onto BSC. 
 The `Resource Mirror Layer` enables users to interact with these assets on BSC using smart contracts, 
 which operate on the primitives defined by Greenfield. This layer plays a critical role in the 
