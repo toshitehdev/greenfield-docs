@@ -1,5 +1,5 @@
 ---
-title: Bridge
+title: Balance Management
 order: 3
 ---
 
