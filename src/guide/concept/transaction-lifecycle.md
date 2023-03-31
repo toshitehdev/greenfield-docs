@@ -131,7 +131,7 @@ at the same value as `GasConsumed` and returns it in the result.
 After calculating the gas and fee values, validator-nodes check that the user-specified 
 `gas-prices` is greater than their locally defined `min-gas-prices`.
 
-### Discard or Addition of transactions to Mempool
+### Discard or Addition of transactions to the Mempool
 
 If the `Tx` fails at any point during `CheckTx`, it is discarded, and the transaction lifecycle ends at that point. Otherwise, if it passes `CheckTx` successfully, the default protocol is to relay it to peer
 nodes and add it to the Mempool so that the `Tx` becomes a candidate to be included in the next block.
@@ -262,7 +262,7 @@ participate in consensus - i.e. they cannot vote - but listen for votes to under
 
 When they receive enough validator votes (2/3+ _precommits_ weighted by voting power), full nodes commit to a new block to be added to the blockchain and
 finalize the state transitions in the application layer. A new state root is generated to serve as
-a merkle proof for the state transitions. The applications use the `Commit`
+a merkle proof for the state transitions. Applications use the `Commit`
 ABCI method inherited from `Baseapp`; it syncs all the state transitions by
 writing the `deliverState` into the application's internal state. As soon as the state changes are
 committed, `checkState` start afresh from the most recently committed state and `deliverState`
