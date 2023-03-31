@@ -1,9 +1,9 @@
 ---
-title: Ecosystem Players
+title: Ecosystem
 order: 2
 ---
 
-# Ecosystem Players
+# Ecosystem
 From `storage provider` and BNB staker to developers, there are a variety of individuals and entities that play a critical 
 role in the growth and success of Greenfield. We'll dive into the unique contributions and responsibilities of 
 each group, and explore how they work together to shape the future of Greenfield.
