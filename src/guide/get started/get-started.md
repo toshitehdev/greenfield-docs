@@ -5,7 +5,9 @@ order: 1
 
 # DCellar
 
-DCellar is the ultimate tool enabling user to start their decentralized data management journey on Greenfield. With DCellar  V1.0, You can store, download and delete your files, mange your account assets, while more functions are under planing. It is currently avaible as a WebUI, you can easily login with Metamask Wallet. This document helps you get started with DCellar.
+DCellar is the ultimate tool enabling user to start their decentralized data management journey on Greenfield. With DCellar 
+V1.0, You can store, download and delete your files, mange your account assets, while more functions are under planing. 
+It is currently avaible as a WebUI, you can easily login with Metamask Wallet. This document helps you get started with DCellar.
 
 ::: warning
 **Before using DCellar, please make sure you have already installed [MetaMask browser extension](https://metamask.io/) on your web browser and you have already created your Metamask account.**
@@ -23,7 +25,7 @@ Click **Connect Wallet**, your Metamask wallet extension will be automatically a
 For first time users, you will need to add Greenfield Testnet to your Metamask Wallet, and you will be asked to switch your network to Greenfield Testnet to start following operations.
 
 ::: info
-Greenfield Blockchain is fully EVM compatible, it has the same address format with other EVM compatible chains. After you successfully login, 
+Greenfield Blockchain is fully EVM compatible, it shares the same address format with other EVM compatible chains. After you successfully login, 
 your Greenfield Testnet's Owner account is automatically created, and it shares the same account address with your Greenfield BSC Testnet account.
 :::
 
@@ -61,7 +63,7 @@ Input the amount you want to Transfer In, Click **Transfer In**, your trasaction
 
 ## Create Bucket
 
-Before you start using DCellar to manage your files, you shoud make sure you are currently under *Greenfild Testnet*. If you are under other network, you will be asked to Switch to BNB Greenfield first.
+Before you start using DCellar to manage your files, you shoud make sure you are currently under *Greenfild Testnet*. If you are under other network, you will be asked to Switch to *BNB Greenfield* first.
 
 <div align="center"><img src="../../asset/205-switch-network.jpg"  height="95%" width="95%"></div>
 <div align="center"><i>Switch to BNB Greenfield</i></div>
@@ -73,7 +75,7 @@ After Login, you can see  **New Bucket** button at your bucket list page.
 <div align="center"><img src="../../asset/203-bucket-list.jpg"  height="95%" width="95%"></div>
 <div align="center"><i>Bucket List</i></div>
 
-After click **New Bucket**, a pop-up will show and you will be asked to enter a bucket name. Each bucket has a unique name that is assigned by the user when the bucket is created. Please follow the naming rules, carefully select your bucket name:
+Click **New Bucket** to start, and follow the naming rules to pick your bucket name:
 
 - Bucket names must be between 3 (min) and 63 (max) characters long.
 - Bucket names can consist only of lowercase letters, numbers, dots (.), and hyphens (-).
@@ -107,7 +109,7 @@ Please notice that you can only choose one file at a time, and the file size sho
 
 When you are uploading a file, gas fee will be charged from your current login account, which is also your owner account.
 
-Besides, once your file is uploaded successfully, you will be charging storage fee under a certain flow rate. Learn more about [flow rate](../greenfield-blockchain/modules/billing-and-payment.md).
+Besides, once your file is uploaded successfully, you will be charging storage fee under a certain flow rate. You can see more detail about flow rate at [Billing and Payment](../greenfield-blockchain/modules/billing-and-payment.md).
 
 Therefore, when you are uploading a file, you need to make sure that your owner account has enough balance to cover the storage fee for the following six months. which will be shown as Prelocked storage fee as follow.
 
@@ -115,7 +117,7 @@ Therefore, when you are uploading a file, you need to make sure that your owner 
 <div align="center"><i>Upload File</i></div>
 
 ::: info
-Please notice that prelocked fee is not charged at the beganing, it still in your owner account. But you are not allowd to use it for other purpose because it's "locked".
+Please notice that prelocked fee is not charged at the beginning, it still in your owner account. But you are not allowd to use it for other purpose because it's "locked".
 :::
 
 You can view your total "locked fee" at your account page by clicking your account button on the top right corner.
@@ -127,10 +129,10 @@ You can view your total "locked fee" at your account page by clicking your accou
 
 
 
-When you are downloading a file, gas fee will be charged from your current login account, which is also your owner account. If your balance is insufficient, you will be informed to Transfer In first.
+You can downloard your own file in DCellar V1.0. When you are downloading a file, gas fee will be charged from your current login account, which is also your owner account. If your balance is insufficient, you will be informed to Transfer In first.
 
 ::: warning
-Each download operation will consume **Download Quota**, which is related to file size. In current testing phase, each user will be given **5G**'s free quota. And users are not able to buy new quota.
+Each download operation will consume **Download Quota**, which is related to file size. In current testing phase, each bucket will be given **10G**'s free quota. And users are not able to buy new quota for now.
 :::
 
 When your remaining quota is smaller than the required quota for a certain file you are downloading, your download will be failed, you will receive an error message as follow:
@@ -152,49 +154,4 @@ Besides, when your file is deleted, your flow rate will be recalculated, part of
 You can delete the bucket created by you. Please notice you are only allowed to delete an empty bucket, which means you need to delete all your files in the bucket before you delete the bucket.
 
 When you are deleting a bucket, gas fee will be charged from your current login account, which is also your owner account.
-
-
-
-## Send
-
-With DCellar V1.0, you can send BNB token from your Greenfield owner account  to other Greenfield owner account.
-
-Before you send token to others, you shoud make sure you are currently under *Greenfild  Testnet*. If you are under *Greenfield BSC Testnet*, your Send page will be shown as follows:
-
-<div align="center"><img src="../../asset/215-send-switch-network.png"  height="95%" width="50%"></div>
-<div align="center"><i>Switch to BNB Greenfield</i></div>
-
-Click **Switch to BNB Greenfield**, your Metamask will be avoked, informing  you to switch network, by clicking **Switch Network** button on Metamask pop-up, you will be able to switch to *Greenfild Testnet*.
-
-::: warning
-Before Sending, please make sure the address you enter is a valid Greenfield Testnet account address.
-:::
-
-Enter receiver's address and the amount you want the send, click **Send**, your transaction will be sent to Greenfield Testnet, and you will need to pay the gas fee on Greenfield Testnet.
-
-<div align="center"><img src="../../asset/216-send.png"  height="95%" width="95%"></div>
-<div align="center"><i>Send</i></div>
-
-## Transfer Out
-
-With DCellar V1.0, you can transfer out BNB token from your Greenfield Testnet account  to your Greenfield BSC Testnet account which shares the same address.
-
-Before you Transfer Out, you shoud make sure you are currently under *Greenfild  Testnet*. If you are under *Greenfield BSC Testnet*, your Transfer Out page will be shown as follows:
-
-<div align="center"><img src="../../asset/212-transfer-out-switch-network.png"  height="95%" width="50%"></div>
-<div align="center"><i>Switch to BNB Greenfield</i></div>
-
-Click **Switch to BNB Greenfield**, your Metamask will be avoked, informing  you to switch network, by clicking **Switch Network** button on Metamask pop-up, you will be able to switch to *Greenfild Testnet*.
-
-Transfer Out will cost you two kinds of fees, all charged by BNB token:
-
-- **Gas fee**: covers the gas cost for sending your transfer on the destination chain.
-- **Relayer fee**: paid to relayers for handling cross-chain packets.
-
-<div align="center"><img src="../../asset/213-transfer-out.png"  height="95%" width="95%"></div>
-<div align="center"><i>Transfer Out</i></div>
-
-
-Input the amount you want to Transfer Out, Click **Transfer Out**, your trasaction will be send. You can view your transaction details in [Greenfield BSC Testnet Explorer](https://greenfield-bsc-testnet-explorer.nodereal.io/).
-
 
