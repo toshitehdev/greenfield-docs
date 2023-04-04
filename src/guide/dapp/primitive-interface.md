@@ -5,11 +5,11 @@ order: 3
 
 # Primitive Interfaces
 
-This document provides an overview of the core components of the [dApp SDK](https://github.com/bnb-chain/greenfield-contracts-sdk), designed to facilitate the development of community-driven projects. The SDK is organized into four primary parts: BaseApp, BucketApp, ObjectApp, and GroupApp. These components serve as the building blocks for developers, enabling them to create and manage a variety of greenfield resources, like bucket, group, and object on BSC through smart contract directly.
+This document provides an overview of the core components of the [smart contract SDK](https://github.com/bnb-chain/greenfield-contracts-sdk), designed to facilitate the development of community-driven projects. The SDK serves as an upper layer wrapper for the [greenfield-contracts](https://github.com/bnb-chain/greenfield-contracts) library, which implements the cross-chain communication functionality. By providing a user-friendly interface to the underlying library, the SDK simplifies the development process and enables developers to create and manage a variety of greenfield resources, like bucket, group, and object on BSC through smart contract directly.
 
 ## Overview
 
-The BaseApp serves as the foundation for the other three components, providing common functions required by the BucketApp, ObjectApp, and GroupApp. The BucketApp is responsible for managing bucket-related operations, while the ObjectApp handles object-related actions. The GroupApp, being the most complex of the four, is designed to handle group-related operations. Each of these components is equipped with unique functions and virtual functions that require implementation to suit specific project needs.
+The SDK is organized into four primary parts: BaseApp, BucketApp, ObjectApp, and GroupApp. These components serve as the building blocks for developers. The BaseApp serves as the foundation for the other three components, providing common functions required by the BucketApp, ObjectApp, and GroupApp. The BucketApp is responsible for managing bucket-related operations, while the ObjectApp handles object-related actions. The GroupApp, being the most complex of the four, is designed to handle group-related operations. Each of these components is equipped with unique functions and virtual functions that can be implemented to suit specific project needs.
 
 ## Components
 
@@ -92,3 +92,161 @@ In addition to these functions, the GroupApp provides three virtual functions:
 3. **_updateGroupCallback(uint32 _status, uint256 _tokenId, bytes memory _callbackData):** Developers need to implement this function to define the behavior for the update group callback. The function receives the status, token ID, and callback data as parameters.
 
 By implementing these virtual functions, developers can customize the GroupApp component to suit their specific group-related operations and handle the corresponding callbacks as needed.
+
+## Greenfield-Contracts Library
+
+The [greenfield-contracts](https://github.com/bnb-chain/greenfield-contracts) library is the underlying backbone of the Smart Contract SDK. It is responsible for implementing the core cross-chain communication functionality that enables seamless interaction between greenfield and bsc networks. The library handles the complexities of cross-chain operations, ensuring secure and efficient communication between various resources and networks.
+
+During the development process, developers are most likely to interact with the following contracts: `CrossChain`, `TokenHub`, and `BucketHub/ObjectHub/GroupHub`. They provide the following interfaces respectively:
+
+1. 
+
+   ```solidity
+   interface ICrossChain {
+   		// get relayFee and minAckRelayFee. They are the basic fees required for sending cross-chain transactions
+       function getRelayFees() external returns (uint256 relayFee, uint256 minAckRelayFee);
+   
+   		// get callbacckGasPrice. The system required gas price when execute callback call
+       function callbackGasPrice() external returns (uint256);
+   }
+   ```
+
+2. 
+
+   ```solidity
+   interface ITokenHub {
+   		// transfer BNB from bsc to greenfield
+       function transferOut(
+           address contractAddr,
+           address recipient,
+           uint256 amount,
+           uint64 expireTime
+       ) external payable returns (bool);
+   }
+   ```
+
+3. 
+
+   ```solidity
+   interface IBucketHub {
+   	  // get the contract address of bucket token
+       function ERC721Token() external view returns (address);
+   
+   		// send create bucket cross-chain transaction
+       function createBucket(BucketStorage.CreateBucketSynPackage memory createPackage) external payable returns (bool);
+   		
+   		// send create bucket cross-chain transaction with callback data
+       function createBucket(
+           BucketStorage.CreateBucketSynPackage memory createPackage,
+           uint256 callbackGasLimit,
+           CmnStorage.ExtraData memory extraData
+       ) external payable returns (bool);
+       
+   		// send delete bucket cross-chain transaction
+       function deleteBucket(uint256 tokenId) external payable returns (bool);
+   
+   		// send delete bucket cross-chain transaction with callback data
+       function deleteBucket(uint256 tokenId, uint256 callbackGasLimit, CmnStorage.ExtraData memory extraData) external payable returns (bool);
+   
+       // to see if an `account` has specific `role` of `granter`
+       function hasRole(bytes32 role, address granter, address account) external view returns (bool);
+   
+   		// grant an `account` specific role with `expireTime`
+       function grant(address account, uint32 authCode, uint256 expireTime) external;
+   
+   		// revoke an `account` with specific role 
+       function revoke(address account, uint32 authCode) external;
+   
+   		// retry the first failed package in the queue
+       function retryPackage() external;
+   
+   		// skip the first failed package in the queue
+       function skipPackage() external;
+   }
+   ```
+
+4. 
+
+   ```solidity
+   interface IObjectHub {
+       // get the contract address of object token
+       function ERC721Token() external view returns (address);
+   
+       // send delete object cross-chain transaction
+       function deleteObject(uint256 tokenId) external payable returns (bool);
+   
+       // send delete object cross-chain transaction with callback data
+       function deleteObject(uint256 tokenId, uint256 callbackGasLimit, CmnStorage.ExtraData memory extraData) external payable returns (bool);
+   
+       // to see if an `account` has specific `role` of `granter`
+       function hasRole(bytes32 role, address granter, address account) external view returns (bool);
+   
+       // grant an `account` specific role with `expireTime`
+       function grant(address account, uint32 authCode, uint256 expireTime) external;
+   
+       // revoke an `account` with specific role 
+       function revoke(address account, uint32 authCode) external;
+   
+       // retry the first failed package in the queue
+       function retryPackage() external;
+   
+       // skip the first failed package in the queue
+       function skipPackage() external;
+   }
+   ```
+
+5. 
+
+   ```solidity
+   interface IGroupHub {
+       // get the contract address of group token
+       function ERC721Token() external view returns (address);
+   
+       // get the contract address of group token
+       function ERC1155Token() external view returns (address);
+   
+       // send create group cross-chain transaction with callback data
+       function createGroup(address creator, string memory name) external payable returns (bool);
+   
+       // send create group cross-chain transaction
+       function createGroup(
+           address creator,
+           string memory name,
+           uint256 callbackGasLimit,
+           CmnStorage.ExtraData memory extraData
+       ) external payable returns (bool);
+   
+       // send delete group cross-chain transaction
+       function deleteGroup(uint256 tokenId) external payable returns (bool);
+   
+       // send delete group cross-chain transaction with callback data
+       function deleteGroup(uint256 tokenId, uint256 callbackGasLimit, CmnStorage.ExtraData memory extraData) external payable returns (bool);
+   
+       // send update group cross-chain transaction
+       function updateGroup(GroupStorage.UpdateGroupSynPackage memory extraData) external payable returns (bool);
+   
+       // send update group cross-chain transaction with callback data
+       function updateGroup(
+           GroupStorage.UpdateGroupSynPackage memory createPackage,
+           uint256 callbackGasLimit,
+           CmnStorage.ExtraData memory extraData
+       ) external payable returns (bool);
+   
+       // to see if an `account` has specific `role` of `granter`
+       function hasRole(bytes32 role, address granter, address account) external view returns (bool);
+   
+       // grant an `account` specific role with `expireTime`
+       function grant(address account, uint32 authCode, uint256 expireTime) external;
+   
+       // revoke an `account` with specific role 
+       function revoke(address account, uint32 authCode) external;
+   
+       // retry the first failed package in the queue
+       function retryPackage() external;
+   
+       // skip the first failed package in the queue
+       function skipPackage() external;
+   }
+   ```
+
+   
