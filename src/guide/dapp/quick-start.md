@@ -20,9 +20,9 @@ Before starting, make sure you have the following tools installed:
 $ npm install @bnb-chain/greenfield-contracts-sdk
 ```
 
-Alternatively, you can obtain the contracts directly from the GitHub repository (`bnb-chain/greenfield-contracts-sdk`). When doing so, ensure that you specify the appropriate release tag, such as `v1.0.0`, instead of using the `master` branch.
+Alternatively, you can obtain the contracts directly from the GitHub repository (`bnb-chain/greenfield-contracts-sdk`). When doing so, ensure that you specify the appropriate release.
 
-### Usage
+### Steps
 
 1. Import the desired contracts, for example in `examples/ebook-shop.sol`:
 
