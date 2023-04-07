@@ -29,12 +29,12 @@ Alternatively, you can obtain the contracts directly from the GitHub repository 
    ```solidity
    pragma solidity ^0.8.0;
    
-   import "../BucketApp.sol";
-   import "../ObjectApp.sol";
-   import "../GroupApp.sol";
-   import "../interface/IERC1155.sol";
-   import "../interface/IERC721Nontransferable.sol";
-   import "../interface/IERC1155Nontransferable.sol";
+   import "@bnb-chain/greenfield-contracts-sdk/BucketApp.sol";
+   import "@bnb-chain/greenfield-contracts-sdk/ObjectApp.sol";
+   import "@bnb-chain/greenfield-contracts-sdk/GroupApp.sol";
+   import "@bnb-chain/greenfield-contracts-sdk/interface/IERC1155.sol";
+   import "@bnb-chain/greenfield-contracts-sdk/interface/IERC721Nontransferable.sol";
+   import "@bnb-chain/greenfield-contracts-sdk/interface/IERC1155Nontransferable.sol";
    ...
    
    contract EbookShop is BucketApp, ObjectApp, GroupApp {
@@ -114,6 +114,11 @@ Alternatively, you can obtain the contracts directly from the GitHub repository 
 
 4. Next you need to define the main functional parts of the app. You can send cross-chain request to system contracts with the help of internal functions like below:
    ```solidity
+   /**
+    * @dev Create a new series.
+    * 
+    * Assuming the sp provider's info will be provided by the front-end.
+    */
    function createSeries(
        string calldata name,
        BucketStorage.BucketVisibilityType visibility,
@@ -129,6 +134,12 @@ Alternatively, you can obtain the contracts directly from the GitHub repository 
        _createBucket(msg.sender, name, visibility, chargedReadQuota, spAddress, expireHeight, sig, _callbackData); // send cross-chain request
    }
    
+   /**
+    * @dev Provide an ebook's ID to publish it.
+    *
+    * An ERC1155 token will be minted to the owner.
+    * Other users can buy the ebook by calling `buyEbook` function with given price.
+    */
    function publishEbook(uint256 _ebookId, uint256 price) external {
        require(
            IERC721NonTransferable(objectToken).ownerOf(_ebookId) == msg.sender,
@@ -141,6 +152,12 @@ Alternatively, you can obtain the contracts directly from the GitHub repository 
        IERC1155(ebookToken).mint(msg.sender, _ebookId, 1, "");
    }
        
+   /**
+    * @dev Provide an ebook's ID to buy it.
+    *
+    * Buyer will be added to the group of the ebook.
+    * An ERC1155 token will be minted to the buyer.
+    */
    function buyEbook(uint256 _ebookId) external payable {
        require(ebookPrice[_ebookId] > 0, string.concat("EbookShop: ", ERROR_EBOOK_NOT_ONSHELF));
    
@@ -156,6 +173,12 @@ Alternatively, you can obtain the contracts directly from the GitHub repository 
        _updateGroup(_owner, _groupId, UPDATE_ADD, _member);
    }
    
+   /**
+    * @dev Provide an ebook's ID to downshelf it.
+    *
+    * The ebook will be removed from the shelf and cannot be bought.
+    * Those who have already purchased are not affected.
+    */
    function downshelfEbook(uint256 _ebookId) external {
        require(
            IERC721NonTransferable(objectToken).ownerOf(_ebookId) == msg.sender,
@@ -170,7 +193,9 @@ Alternatively, you can obtain the contracts directly from the GitHub repository 
 
 5. Besides, you may need to provide a function for user to register their own resource that were created at greenfield side and then mirrored to BSC manually:
    ```solidity
-   // register resource that mirrored from GreenField to BSC
+   /**
+    * @dev Register bucket resource that mirrored from GreenField to BSC.
+    */
    function registerSeries(string calldata name, uint256 tokenId) external {
        require(
            IERC721NonTransferable(bucketToken).ownerOf(tokenId) == msg.sender,
@@ -182,6 +207,7 @@ Alternatively, you can obtain the contracts directly from the GitHub repository 
        seriesName[tokenId] = name;
        seriesId[name] = tokenId;
    }
+   ...
    ```
 
 6. Define other view functions, internal funcions and access control system according to your own needs.
