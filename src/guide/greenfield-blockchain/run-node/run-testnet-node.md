@@ -5,11 +5,6 @@ order: 4
 
 # Run Testnet Node
 
-:::tip
-See the [greenfield repo](https://github.com/bnb-chain/greenfield) for information on the testnet, 
-including the correct version of the binaries to use and details about the genesis file
-:::
-
 ## Minimum System Requirements
 The hardware must meet certain requirements to run a Full Node.
 
@@ -19,6 +14,11 @@ The hardware must meet certain requirements to run a Full Node.
 * A broadband Internet connection with upload/download speeds of at least 1 megabyte per second.
 
 ## Setting Up a New Node
+
+::: info 
+Please check the [greenfield repo](https://github.com/bnb-chain/greenfield/releases/latest) for information on the testnet,
+including the correct version of the binaries to use and details about the config file
+:::
 
 1. You need to choose a home folder `$NODE_HOME` (i.e. ~/.gnfd) for Greenfield Chain. You can setup this by:
 
@@ -31,6 +31,7 @@ mkdir ~/.gnfd/config
 ```
 wget  $(curl -s https://api.github.com/repos/bnb-chain/greenfield/releases/latest |grep browser_ |grep testnet_config |cut -d\" -f4)
 unzip testnet_config.zip
+cp testnet_config/*  ~/.gnfd/config/
 ```
 
 

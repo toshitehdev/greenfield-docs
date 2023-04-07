@@ -11,7 +11,7 @@ order: 5
 - RAM: 8 GB
 - HDD/SDD: 1 TB
 - Bandwidth: 1 MB/s
-- Slashing details: No slashing will occur for nodes in the testnet.
+- Slashing details: No slashing will occur for validator in the testnet so far, but will enable it short future.
 
 ## Setting up Validator Node
 
@@ -23,7 +23,7 @@ Follow the instructions [here to set up a full node](./run-testnet-node.md).
 
 :::note
 The `keyring-backend` supports multiple storage backends, some of which may not be available on all operating systems.
-See more details: https://docs.cosmos.network/v0.46/run-node/keyring.html#available-backends-for-the-keyring
+See more details [here](../../concept/key-management.md).
 :::
 
 ```bash
@@ -122,7 +122,13 @@ gnfd tx gov submit-proposal ./create_validator_proposal.json --keyring-backend t
 
 ### 6. Wait for the voting until the Proposal is passed.
 
-After submitting the proposal successfully, you must wait for the voting to be completed and the proposal to be approved. Once it has passed and is executed successfully, you can verify that the node has become a validator.
+After submitting the proposal successfully, you must wait for the voting to be completed and the proposal to be approved.
+It will last 7days on mainnet while 1 day on testnet. Once it has passed and is executed successfully, 
+you can verify that the node has become a validator. 
+
+::: warning
+Please ensure that the validator node is running before it is selected.
+:::
 
 ### 7. Query all validators
 ```bash
