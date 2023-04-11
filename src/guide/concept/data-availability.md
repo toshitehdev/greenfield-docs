@@ -21,7 +21,13 @@ Collaboration between Greenfield and storage providers is crucial to ensure data
 "Proof-of-Challenge" is proposed based on the assumptions: **Greenfield is a self-sustained, service-oriented ecosystem.**
 :::
 
-Stakeholders can trigger challenges in various ways, such as through user or via random events on the Greenfield blockchain. 
-Following a challenge, [Challenge Verifier](../introduction/ecosystem.md#challenge-verifier) must conduct an **off-chain audit** of challenged data from storage providers. The Verifier Consortium will vote on the challenge results, and the failed outcomes will reduce the corresponding storage providers' staked BNB. Participants who submitted the challenge and the verifier receive rewards for their involvement in this process. Data that failed to pass a challenge will not face another challenge for a specific time to allow storage providers to restore the data.
+Stakeholders can trigger challenges in various ways, such as through user or 
+via random events on the Greenfield blockchain. Following a challenge, [Challenge Verifier](../introduction/ecosystem.md#challenge-verifier) must conduct 
+an **off-chain audit** of challenged data from storage providers. Verifier Consortium will vote on the challenge results, 
+and the failed outcomes will reduce the corresponding storage providers' staked BNB. Participants who submitted the challenge 
+and the verifier receive rewards for their involvement in this process.
+
+Data that failed to pass a challenge will not face another challenge for a specific time to allow storage providers to 
+restore the data. 
 
 [Data challenger module](../greenfield-blockchain/modules/data-availability-challenge.md) will elaborate further on challenges associated with data availability.
