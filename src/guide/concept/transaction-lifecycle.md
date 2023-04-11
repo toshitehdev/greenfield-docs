@@ -131,7 +131,7 @@ at the same value as `GasConsumed` and returns it in the result.
 After calculating the gas and fee values, validator-nodes check that the user-specified 
 `gas-prices` is greater than their locally defined `min-gas-prices`.
 
-### Discard or Addition of transactions to the Mempool
+### Discard or Addition of transactions to Mempool
 
 If the `Tx` fails at any point during `CheckTx`, it is discarded, and the transaction lifecycle ends at that point. Otherwise, if it passes `CheckTx` successfully, the default protocol is to relay it to peer
 nodes and add it to the Mempool so that the `Tx` becomes a candidate to be included in the next block.
